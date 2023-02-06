@@ -13,7 +13,7 @@ func main() {
 			<title>GitHub Actions</title>
 		</head>
 		<body>
-			<h1>Hello</h1>
+			<h2>Hello</h2>
 			<p>Hello, World!</p>
 		</body>
 		</html>
