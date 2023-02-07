@@ -25,5 +25,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	f.Write([]byte(website))
+	if _, err := f.Write([]byte(website)); err != nil {
+		log.Fatal(err)
+	}
 }
