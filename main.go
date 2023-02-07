@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -20,7 +19,7 @@ const website = `
 `
 
 func main() {
-	fmt.Println(color.Red("Hello, World!"))
+	color.Red("Hello, World!")
 
 	f, err := os.Create("public/index.html")
 	if err != nil {
