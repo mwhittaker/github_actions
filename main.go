@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+
+	"github.com/fatih/color"
 )
 
 const website = `
@@ -17,6 +20,8 @@ const website = `
 `
 
 func main() {
+	fmt.Println(color.Red("Hello, World!"))
+
 	f, err := os.Create("public/index.html")
 	if err != nil {
 		log.Fatal(err)
