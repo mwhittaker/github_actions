@@ -16,10 +16,6 @@ const website = `
 </html>
 `
 
-func double(x int) int {
-	return x * 2
-}
-
 func main() {
 	f, err := os.Create("public/index.html")
 	if err != nil {
