@@ -22,11 +22,23 @@ jobs:
 
       - name: Generate
         run: |
-          echo "hi"
-          echo "bye"
+          (cd cmd/weaver && go build) || true
+          go generate ./...
 
       - name: Build
         run: go build -v ./...
 
+      - name: Vet
+        run: go vet ./...
+
+      - name: Lint
+        run: |
+          go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.51.0
+          golangci-lint run ./...
+          golangci-lint run --enable unused --tests=false ./...
+
       - name: Test
         run: go test -v ./...
+
+      - name: Test Race
+        run: go test -v -race ./...
