@@ -18,5 +18,7 @@ func main() {
 		</body>
 		</html>
 	`
-	f.Write([]byte(contents))
+	if _, err := f.Write([]byte(contents)); err != nil {
+		panic(err)
+	}
 }
