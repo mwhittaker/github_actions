@@ -1,24 +1,31 @@
 package main
 
-import "os"
+import (
+	"log"
+	"os"
+)
+
+const website = `
+<html>
+  <head>
+    <title>GitHub Actions</title>
+  </head>
+  <body>
+    <p>Hello, World!</p>
+  </body>
+</html>
+`
+
+func double(x int) int {
+	return x * 2
+}
 
 func main() {
 	f, err := os.Create("public/index.html")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	contents := `
-		<html>
-		<head>
-			<title>GitHub Actions</title>
-		</head>
-		<body>
-			<h2>Hello</h2>
-			<p>Hello, World!</p>
-		</body>
-		</html>
-	`
-	if _, err := f.Write([]byte(contents)); err != nil {
-		panic(err)
+	if _, err := f.Write([]byte(website)); err != nil {
+		log.Fatal(err)
 	}
 }
