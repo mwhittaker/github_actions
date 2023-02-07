@@ -15,7 +15,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: ${{matrix.version}}
+          go-version: ${{ matrix.version }}
           cache: true
 
       - name: Tidy
@@ -31,6 +31,12 @@ jobs:
 
       - name: Vet
         run: go vet ./...
+
+      - name: Cache linter
+        uses: actions/cache@v3
+        with:
+          path: ~/go/bin/golangci-lint
+          key: golangci-lint-v1.51.0
 
       - name: Lint
         run: |
