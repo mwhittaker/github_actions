@@ -34,7 +34,7 @@ jobs:
 
       - run: |
           git ls-files --modified --other
-          if ! [[ $(git ls-files --modified --other) ]]; then
+          if [[ $(git ls-files --modified --other) ]]; then
             echo "changed"
             exit 1
           else
@@ -44,7 +44,7 @@ jobs:
       - run: git status
       - run: |
           git ls-files --modified --other
-          if ! [[ $(git ls-files --modified --other) ]]; then
+          if [[ $(git ls-files --modified --other) ]]; then
             echo "changed"
             exit 1
           else
