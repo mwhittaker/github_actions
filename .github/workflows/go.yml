@@ -18,9 +18,6 @@ jobs:
           go-version: ${{ matrix.version }}
           cache: true
 
-      - run: sh --version
-      - run: bash --version
-
       - name: Tidy
         run: go mod tidy
 
