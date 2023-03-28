@@ -32,9 +32,16 @@ jobs:
       - name: Vet
         run: go vet ./...
 
+      - run: |
+          if ! [[ $(git ls-files --modified --other) ]]; then
+            exit 1
+          fi
       - run: touch foo.txt
       - run: git status
-      - run: git diff
+      - run: |
+          if ! [[ $(git ls-files --modified --other) ]]; then
+            exit 1
+          fi
 
       - name: Cache linter
         uses: actions/cache@v3
